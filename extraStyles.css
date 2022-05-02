@@ -1,0 +1,22 @@
+.bg-portfolio {
+  background-color: cornflowerblue;
+}
+
+.bg-navbar {
+  background-color: steelblue;
+  color: white;
+}
+
+a.nav-link {
+  color: wheat;
+}
+
+.nav-item {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

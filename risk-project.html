@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <title>Risk Research</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="extraStyles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body class="bg-portfolio">
+    <div class="container bg-navbar rounded">
+      <nav class="navbar navbar-expand-lg bg-navbar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="navbar-brand nav-link" href="engineering-honors.html">EHP Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a href="philosophy-of-ed.html" class="nav-link">Philosophy of Education</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Works
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="catfund.html">Catfund</a>
+              <a class="dropdown-item" href="risk-project.html">Risk Research</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Classwork
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item disabled" href="#">ML/Data Science</a>
+              <a class="dropdown-item" href="#">Natural Language Processing</a>
+              <a class="dropdown-item" href="#">Reddit Event Clustering</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item disabled" href="#">Writings</a>
+              <a class="dropdown-item" href="resources/canvas-report.pdf">Canvas Consulting Report</a>
+              <a class="dropdown-item" href="resources/state-of-ai.pdf">Human and Machine Problem-solving</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item disabled" href="#">Musical Undertakings</a>
+              <a class="dropdown-item" href="#">The Sunken Cathedral</a>
+              <a class="dropdown-item" href="#">Out Like a Light</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="brussels.html" class="nav-link">Abroad in Brussels</a>
+          </li>
+          <li class="nav-item">
+            <a href="resources/Resume.pdf" class="nav-link">Resume</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container bg-light rounded">
+      <div class="card-body">
+        <div class="py-4">
+          <h1>Financial Research Project</h1>
+          <h4><i>Analyzing Risk Metric Stability between 1950-2020</i></h4>
+        </div>
+        <div>
+          <p>
+            From Fall 2021 to Spring 2022, I worked with Dr. David Ikenberry at
+            the CU Leeds Business School to do research on how risk to financial
+            assets (in particular, stocks) changes over time. We looked at 3 metrics:
+            volatility (which is the standard deviation of a stock’s weekly returns),
+            correlation between pairs of stocks, and market exposure (essentially,
+            how closely a stock’s returns follow the market’s). The particular question
+            we were answering was how stable these metrics were between 6-month
+            periods, or how far they moved from their previous values.
+          </p>
+          <h5><i>Technical Details</i></h5>
+          <p>
+            To do this, we took stocks with a market capitalization over $10mil
+            (in 2020 dollars) from 1950 to 2020. We then calculated each metric,
+            for each stock, for each 6-month period. Each period’s data was discretized
+            into 10 bins, both by decile and standard error. We then used Markov
+            modeling to analyze the data’s stability; in short, we calculated the
+            probability that a stock would move between a given pair of bins (e.g.
+            10 to 9, or 5 to 7) from one period to the next. This probability was
+            then visualized using a 10x10 heatmap, with “hotter” colors corresponding
+            to higher probabilities.
+          </p>
+          <h5><i>Tentative Findings</i></h5>
+          <p>
+            While our results haven’t been fully analyzed/peer reviewed/published
+            yet, we have seen some interesting trends in the data. Overall, all
+            three metrics tend to be pretty stable between periods; a given stock
+            has a high probability of staying in or near the bin it’s currently in.
+            Across all three metrics, stability has seemed to increase since 1950,
+            with particular increases since 2000. The heatmap results for the entire
+            study duration (1950-2020) are displayed below. The top row of graphs
+            were discretized by deciles, and the bottom row by standard error. A
+            given cell (i, j) contains the probability that a stock moves from bin
+            i to bin j from one period to the next.
+          </p>
+          <p>
+            The stability is evident in the strong diagonal line visible in (most of)
+            the heatmaps, meaning that a given stock has the highest probability of
+            staying in or near its current decile in the next period. The interesting
+            case is the graph in the middle of the bottom row, representing correlations
+            discretized by standard error - the stability isn't evident until the
+            higher deciles, and below about the 5th decile, the strongest tendency
+            is for stocks to revert back to the average level of correlation with
+            each other. This could mean that strongly correlated stocks are correlated
+            because of deeper factors, while weakly correlated (or strongly anticorrelated)
+            ones are due to more transient factors.
+          </p>
+        </div>
+        <div>
+          <img src="resources/risk-results.png">
+        </div>
+        <div>
+          <p>
+            This was a really interesting project. The intersection between this
+            and my internship at Catfund gave me the chance to see both how research
+            gets done in an academic setting, and how the results of that research
+            can get applied professionally.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

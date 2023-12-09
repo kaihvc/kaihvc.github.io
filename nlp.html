@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang=en>
   <head>
-    <title>Catfund</title>
+    <title>Natural Language Processing</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -59,25 +59,50 @@
     <div class="container bg-light rounded">
       <div class="card-body">
         <div class="py-4">
-          <h1>Catfund</h1>
-          <h4><i>Bringing the Power of Algorithmic Trading to the People</i></h4>
+          <h1>Natural Language Processing</h1>
+          <h4><i>As it turns out, language is complicated</i></h4>
         </div>
         <div>
           <p>
-            Catfund is an algorithmic trading startup seeking to bring hedge fund-level
-            returns to the average person. We use machine learning, statistical
-            methods, and traditional financial management techniques to automate
-            trading decisions and reduce financial risk. I currently serve as co-lead
-            developer, implementing these techniques into a workable algorithm.
-            Since meeting our founder Jonathan in May 2021 at a Startups2Students
-            event through CU, I’ve done research, built test algorithms, and worn
-            all the typical hats of the first developer at a brand-new venture.
-            It’s been exciting and more than a little terrifying, but a fantastic
-            experience all around - I’ve had the opportunity to apply everything
-            I’ve learned over the course of my entire degree to solving this problem.
+            Natural language processing - language-related AI - is one of my biggest passions. 
+            I've enjoyed learning languages (or attempting to) for most of my life - something 
+            about the structures and little quirks has always delighted me. Naturally, I 
+            tremendously enjoy the opportunity to combine this with my passion for AI and making
+            machines that seem to think.
           </p>
           <p>
-            As a part of this process, I joined a CU research project on financial risk stability, which you can read more about <a href="risk-project.html">here</a>.
+            In the course of CU's NLP class, I had the opportunity to work on one of the standard
+            NLP evaluation tasks, the Choice of Plausible Alternatives (COPA) task. This task
+            is intended to test how well an AI system can understand logical entailment. The idea is 
+            to provide an AI model with three sentences: one "premise", and two alternative "hypotheses".
+            The model's task is to figure out which hypothesis logically follows the premise. The 
+            general theory is that logic is a tougher linguistic task than something like determining
+            what part of speech a word is; to perform logic, the model needs to know something about the
+            world at large, to understand <i>concepts</i> rather than just letters and words.
+          </p>
+          <p>
+            As far as the technical details go, we used the PyTorch, Transformers, and Pandas Python 
+            libraries to fine-tune pretrained embedding models (RoBERTa and DeBERTa) on data 
+            particular to this task. The end performance our models achieved wasn't stellar, but it
+            gave us the opportunity to learn a <i>lot</i> about using these sorts of models. A big part
+            of the process was learning to use GPU acceleration via CUDA - we hypothesized that one of
+            the main blockers for our training was not being able to fit a large enough training batch size
+            on our single GPUs. According to some of the research we did, batch size matters a lot when
+            training transformer-based models like the ones we used.
+          </p>
+          <p>
+            (For the less technical - we essentially borrowed AI systems that other academics had trained
+            on huge datasets, which gave them a nebulous understanding of English. We then used a smaller
+            number of examples of the task that we wanted performed, hoping that their general understanding
+            of English would let them learn the COPA task faster.)
+          </p>
+          <p>
+            A post-GPT-4 update: this task is, to a large degree, solved now; large language models
+            like PaLM 540B are able to achieve <a href="https://paperswithcode.com/sota/question-answering-on-copa">100% accuracy</a> 
+            when fine-tuned on this task. We knew when we attempted it that large pretrained models were
+            something special (the first paper to indicate that, Brown et al.'s <i>Language Models are Few-Shot Learners</i>,
+            had been out for a year at this point), but we had no idea how important they would become.
+            Such is life, I suppose.
           </p>
         </div>
       </div>
